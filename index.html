@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tharun R — Computer Science & Business Systems student at RMD Engineering College. Specializing in AI, Machine Learning, and full-stack development." />
+  <meta name="keywords" content="Tharun R, computer science student, AI developer, machine learning, Java, portfolio, Chennai, India" />
+  <meta name="author" content="Tharun R" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Tharun R — CS Student & Developer" />
+  <meta property="og:description" content="Portfolio of Tharun R, a Computer Science & Business Systems student building AI-powered solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="theme-color" content="#0A0F1E" />
+  <title>Tharun R — CS Student & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #0A0F1E;
+      --surface:   #111827;
+      --border:    #1E2A3A;
+      --accent:    #38BDF8;
+      --accent-dim:#1E6F99;
+      --accent-glow: rgba(56,189,248,.18);
+      --text:      #E8EFF8;
+      --muted:     #8DA0B8;
+      --white:     #FFFFFF;
+
+      --ff-display: 'Syne', system-ui, sans-serif;
+      --ff-body:    'DM Sans', system-ui, sans-serif;
+
+      --step--1: clamp(.78rem,  .73rem + .22vw,  .89rem);
+      --step-0:  clamp(.94rem,  .88rem + .28vw, 1.06rem);
+      --step-1:  clamp(1.13rem, 1.04rem + .42vw, 1.33rem);
+      --step-2:  clamp(1.35rem, 1.22rem + .64vw, 1.67rem);
+      --step-3:  clamp(1.62rem, 1.42rem + .98vw, 2.09rem);
+      --step-4:  clamp(1.94rem, 1.63rem + 1.5vw, 2.61rem);
+      --step-5:  clamp(2.33rem, 1.87rem + 2.3vw, 3.27rem);
+      --step-6:  clamp(2.80rem, 2.12rem + 3.4vw, 4.08rem);
+
+      --space-xs: .5rem;
+      --space-s:  1rem;
+      --space-m:  1.5rem;
+      --space-l:  2.5rem;
+      --space-xl: 4rem;
+      --space-2xl:6rem;
+
+      --radius-s: 6px;
+      --radius-m: 12px;
+      --radius-l: 20px;
+      --transition: 220ms ease;
+    }
+
+    /* ── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: var(--step-0);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ul { list-style: none; }
+    button, input, textarea, select {
+      font: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
+    /* ── FOCUS VISIBLE ─────────────────────────────────────── */
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: var(--radius-s);
+    }
+
+    /* ── SKIP LINK ─────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-s);
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      padding: .5em 1em;
+      border-radius: 0 0 var(--radius-s) var(--radius-s);
+      z-index: 9999;
+      text-decoration: none;
+      transition: top var(--transition);
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── LAYOUT HELPERS ───────────────────────────────────── */
+    .container {
+      width: min(72rem, 100% - 2 * var(--space-m));
+      margin-inline: auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--ff-display);
+      font-size: var(--step--1);
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-m);
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* ── HEADER / NAV ─────────────────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,15,30,.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: var(--space-s);
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-weight: 800;
+      font-size: var(--step-1);
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    /* hamburger hidden on desktop */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .25rem;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-list {
+      display: flex;
+      gap: var(--space-m);
+      align-items: center;
+    }
+    .nav-list a {
+      font-size: var(--step--1);
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color var(--transition);
+      padding: .25em .1em;
+    }
+    .nav-list a:hover, .nav-list a[aria-current="page"] { color: var(--white); }
+    .nav-cta {
+      font-size: var(--step--1) !important;
+      color: var(--accent) !important;
+      border: 1.5px solid var(--accent) !important;
+      padding: .35em .9em !important;
+      border-radius: var(--radius-s);
+      transition: background var(--transition), color var(--transition) !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    #hero {
+      padding-block: var(--space-2xl) calc(var(--space-2xl) * 1.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5em;
+      font-size: var(--step--1);
+      font-family: var(--ff-display);
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-m);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--accent-glow);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 4px var(--accent-glow); }
+      50%      { box-shadow: 0 0 0 10px transparent; }
+    }
+    .hero-name {
+      font-family: var(--ff-display);
+      font-size: var(--step-6);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+      color: var(--white);
+      margin-bottom: var(--space-m);
+    }
+    .hero-name .line-accent { color: var(--accent); }
+    .hero-tagline {
+      font-size: var(--step-1);
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 44ch;
+      margin-bottom: var(--space-l);
+      line-height: 1.6;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 500; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5em;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      font-family: var(--ff-display);
+      font-size: var(--step--1);
+      letter-spacing: .04em;
+      padding: .75em 1.6em;
+      border-radius: var(--radius-s);
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover {
+      background: #7DD3FC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5em;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      font-size: var(--step--1);
+      font-family: var(--ff-display);
+      font-weight: 600;
+      letter-spacing: .04em;
+      padding: .75em 1.6em;
+      border-radius: var(--radius-s);
+      text-decoration: none;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* avatar placeholder */
+    .hero-avatar {
+      width: clamp(140px, 20vw, 200px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--surface), var(--border));
+      border: 3px solid var(--accent-dim);
+      box-shadow: 0 0 0 6px var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-display);
+      font-size: var(--step-4);
+      font-weight: 800;
+      color: var(--accent);
+      flex-shrink: 0;
+      aria-hidden: true;
+    }
+
+    /* subtle grid texture */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 70% 30%, rgba(56,189,248,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── STATS BAR ────────────────────────────────────────── */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-block: var(--space-m);
+    }
+    .stats-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: var(--space-m);
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: var(--step-3);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: var(--step--1);
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+
+    /* ── ABOUT ────────────────────────────────────────────── */
+    #about {
+      padding-block: var(--space-2xl);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .about-bio {
+      font-size: var(--step-0);
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .about-bio p + p { margin-top: var(--space-s); }
+    .about-bio strong { color: var(--text); }
+
+    .info-table {
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-m);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .info-key {
+      font-size: var(--step--1);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .info-val { color: var(--muted); font-size: var(--step-0); }
+
+    /* ── SKILLS ───────────────────────────────────────────── */
+    #skills {
+      padding-block: var(--space-2xl);
+      background: var(--surface);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-s);
+    }
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .skill-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+    }
+    .skill-name {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: var(--step-0);
+      color: var(--white);
+      margin-bottom: var(--space-xs);
+    }
+    .skill-bar-wrap {
+      background: var(--border);
+      border-radius: 99px;
+      height: 5px;
+      overflow: hidden;
+    }
+    .skill-bar {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+    }
+    .skill-level {
+      font-size: var(--step--1);
+      color: var(--muted);
+      margin-top: var(--space-xs);
+    }
+
+    /* ── EDUCATION ────────────────────────────────────────── */
+    #education {
+      padding-block: var(--space-2xl);
+    }
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: var(--space-m);
+      padding-bottom: var(--space-l);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+    }
+    .timeline-date {
+      font-size: var(--step--1);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .04em;
+      margin-bottom: .25em;
+    }
+    .timeline-degree {
+      font-family: var(--ff-display);
+      font-size: var(--step-1);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .25em;
+    }
+    .timeline-school { color: var(--muted); font-size: var(--step-0); }
+    .timeline-score {
+      display: inline-block;
+      margin-top: var(--space-xs);
+      font-size: var(--step--1);
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: .2em .7em;
+      border-radius: 99px;
+    }
+
+    /* ── PROJECTS ─────────────────────────────────────────── */
+    #projects {
+      padding-block: var(--space-2xl);
+      background: var(--surface);
+    }
+    .projects-grid {
+      display: grid;
+      gap: var(--space-m);
+    }
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-l);
+      padding: var(--space-l);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      display: grid;
+      gap: var(--space-s);
+    }
+    .project-card:hover {
+      border-color: var(--accent-dim);
+      box-shadow: 0 4px 32px var(--accent-glow);
+    }
+    .project-tag {
+      display: inline-flex;
+      font-size: var(--step--1);
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: .25em .75em;
+      border-radius: 99px;
+      letter-spacing: .04em;
+    }
+    .project-title {
+      font-family: var(--ff-display);
+      font-size: var(--step-2);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: var(--step-0);
+      line-height: 1.75;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .tech-chip {
+      font-size: var(--step--1);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: .2em .7em;
+      border-radius: var(--radius-s);
+    }
+
+    /* ── ACHIEVEMENTS & CERTS ─────────────────────────────── */
+    #achievements {
+      padding-block: var(--space-2xl);
+    }
+    .ach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-m);
+    }
+    .ach-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      transition: transform var(--transition);
+    }
+    .ach-card:hover { transform: translateY(-3px); }
+    .ach-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-xs);
+      line-height: 1;
+    }
+    .ach-title {
+      font-family: var(--ff-display);
+      font-size: var(--step-0);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .25em;
+    }
+    .ach-body { font-size: var(--step--1); color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ──────────────────────────────────────────── */
+    #contact {
+      padding-block: var(--space-2xl);
+      background: var(--surface);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .contact-intro {
+      font-size: var(--step-1);
+      font-family: var(--ff-display);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: var(--space-s);
+    }
+    .contact-sub {
+      color: var(--muted);
+      font-size: var(--step-0);
+      margin-bottom: var(--space-l);
+    }
+    .contact-links { display: flex; flex-direction: column; gap: var(--space-s); }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: var(--step-0);
+      transition: color var(--transition);
+      padding: .5rem 0;
+    }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link svg { flex-shrink: 0; }
+
+    /* FORM */
+    .contact-form {
+      display: grid;
+      gap: var(--space-m);
+    }
+    .form-group { display: grid; gap: .4em; }
+    .form-label {
+      font-size: var(--step--1);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .04em;
+    }
+    .form-label .req { color: var(--accent); margin-left: .2em; }
+    .form-control {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-s);
+      padding: .75em 1em;
+      color: var(--text);
+      font-size: var(--step-0);
+      width: 100%;
+      transition: border-color var(--transition);
+    }
+    .form-control::placeholder { color: var(--muted); }
+    .form-control:focus { border-color: var(--accent); outline: none; }
+    .form-control:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    textarea.form-control { resize: vertical; min-height: 140px; }
+    .form-error {
+      font-size: var(--step--1);
+      color: #F87171;
+      display: none;
+    }
+    .form-control[aria-invalid="true"] { border-color: #F87171; }
+    .form-control[aria-invalid="true"] + .form-error { display: block; }
+
+    .form-status {
+      padding: .75em 1em;
+      border-radius: var(--radius-s);
+      font-size: var(--step--1);
+      font-weight: 600;
+      display: none;
+    }
+    .form-status.success { background: rgba(56,248,150,.1); color: #34D399; display: block; }
+    .form-status.error   { background: rgba(248,113,113,.1); color: #F87171; display: block; }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding-block: var(--space-l);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-s);
+    }
+    .footer-copy {
+      font-size: var(--step--1);
+      color: var(--muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--space-m);
+    }
+    .footer-links a {
+      font-size: var(--step--1);
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── BACK TO TOP ──────────────────────────────────────── */
+    .back-top {
+      position: fixed;
+      bottom: var(--space-l);
+      right: var(--space-l);
+      width: 2.75rem;
+      height: 2.75rem;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+    .back-top.visible { opacity: 1; pointer-events: auto; }
+    .back-top:hover { transform: translateY(-3px); }
+
+    /* ── REDUCED MOTION ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: var(--space-m);
+        gap: var(--space-s);
+      }
+      .nav-list.open { display: flex; }
+
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-avatar { display: none; }
+      .about-grid  { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name { letter-spacing: -.03em; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ── SKIP NAVIGATION ──────────────────────────────────── -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── SITE HEADER ──────────────────────────────────────── -->
+  <header class="site-header" role="banner">
+    <nav class="container nav-inner" aria-label="Primary navigation">
+      <a href="#hero" class="nav-logo" aria-label="Tharun R — home">
+        Tharun<span aria-hidden="true">.</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav-list" id="nav-menu" role="list">
+        <li><a href="#about"        aria-label="Go to About section">About</a></li>
+        <li><a href="#skills"       aria-label="Go to Skills section">Skills</a></li>
+        <li><a href="#education"    aria-label="Go to Education section">Education</a></li>
+        <li><a href="#projects"     aria-label="Go to Projects section">Projects</a></li>
+        <li><a href="#achievements" aria-label="Go to Achievements section">Achievements</a></li>
+        <li><a href="#contact"      class="nav-cta" aria-label="Go to Contact section">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN CONTENT ─────────────────────────────────────── -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <p class="hero-eyebrow" aria-label="Currently studying">
+              Currently studying · CSBS '29
+            </p>
+            <h1 id="hero-heading" class="hero-name">
+              Tharun<br/><span class="line-accent">R</span>
+            </h1>
+            <p class="hero-tagline">
+              <strong>CS &amp; Business Systems student</strong> at RMD Engineering College, building
+              AI-powered tools that make information more trustworthy — starting with
+              a fake-news detection system powered by ML &amp; NLP.
+            </p>
+            <nav class="hero-actions" aria-label="Quick actions">
+              <a href="#projects" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12l10-8 10 8"/><path d="M5 9.5V20h14V9.5"/></svg>
+                View my work
+              </a>
+              <a href="#contact" class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Get in touch
+              </a>
+            </nav>
+          </div>
+          <div class="hero-avatar" aria-hidden="true" role="presentation">TR</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <aside class="stats-bar" aria-label="Academic highlights">
+      <div class="container">
+        <ul class="stats-list" role="list">
+          <li class="stat-item">
+            <strong class="stat-value">8.46</strong>
+            <span class="stat-label">CGPA</span>
+          </li>
+          <li class="stat-item">
+            <strong class="stat-value">84.66%</strong>
+            <span class="stat-label">HSC Score</span>
+          </li>
+          <li class="stat-item">
+            <strong class="stat-value">81%</strong>
+            <span class="stat-label">SSLC Score</span>
+          </li>
+          <li class="stat-item">
+            <strong class="stat-value">5+</strong>
+            <span class="stat-label">Skills</span>
+          </li>
+          <li class="stat-item">
+            <strong class="stat-value">3</strong>
+            <span class="stat-label">Languages</span>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">About me</p>
+        <h2 id="about-heading" class="sr-only">About me</h2>
+        <div class="about-grid">
+          <div class="about-bio">
+            <p>
+              I'm <strong>Tharun R</strong>, a first-year B.Tech student specialising in
+              <strong>Computer Science and Business Systems</strong> at RMD Engineering College,
+              Kavaraipettai. I'm passionate about applying AI and Machine Learning to solve
+              real-world information problems.
+            </p>
+            <p>
+              My flagship project — an <strong>Automated Fake News Detection System</strong> —
+              uses NLP and speech-to-text to classify news in real time, providing confidence
+              scores that help people navigate today's information landscape more critically.
+            </p>
+            <p>
+              I'm fluent in <strong>Hindi, English, and Tamil</strong>, and outside of code
+              I enjoy cricket and badminton.
+            </p>
+          </div>
+          <dl class="info-table" aria-label="Personal details">
+            <div class="info-row">
+              <dt class="info-key">Name</dt>
+              <dd class="info-val">Tharun R</dd>
+            </div>
+            <div class="info-row">
+              <dt class="info-key">Email</dt>
+              <dd class="info-val"><a href="mailto:rtharun081207@gmail.com" class="contact-link" style="padding:0">rtharun081207@gmail.com</a></dd>
+            </div>
+            <div class="info-row">
+              <dt class="info-key">Phone</dt>
+              <dd class="info-val"><a href="tel:+917010124724" class="contact-link" style="padding:0">+91 7010124724</a></dd>
+            </div>
+            <div class="info-row">
+              <dt class="info-key">Location</dt>
+              <dd class="info-val">Chennai, India</dd>
+            </div>
+            <div class="info-row">
+              <dt class="info-key">Degree</dt>
+              <dd class="info-val">B.Tech CSBS (2025–2029)</dd>
+            </div>
+            <div class="info-row">
+              <dt class="info-key">LinkedIn</dt>
+              <dd class="info-val"><a href="https://linkedin.com/in/tharun-r" class="contact-link" style="padding:0" aria-label="Tharun R on LinkedIn" target="_blank" rel="noopener noreferrer">linkedin.com/in/tharun-r</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container" style="padding-block: var(--space-2xl)">
+        <p class="section-label" aria-hidden="true">Technical skills</p>
+        <h2 id="skills-heading" class="sr-only">Technical skills</h2>
+        <ul class="skills-grid" role="list" aria-label="Programming language skills">
+          <li class="skill-card">
+            <h3 class="skill-name">C</h3>
+            <div class="skill-bar-wrap" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="C proficiency 90%">
+              <div class="skill-bar" style="width:90%"></div>
+            </div>
+            <p class="skill-level">Advanced</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-name">C++</h3>
+            <div class="skill-bar-wrap" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="C++ proficiency 80%">
+              <div class="skill-bar" style="width:80%"></div>
+            </div>
+            <p class="skill-level">Proficient</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-name">Java</h3>
+            <div class="skill-bar-wrap" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Java proficiency 75%">
+              <div class="skill-bar" style="width:75%"></div>
+            </div>
+            <p class="skill-level">Proficient</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-name">HTML</h3>
+            <div class="skill-bar-wrap" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="HTML proficiency 85%">
+              <div class="skill-bar" style="width:85%"></div>
+            </div>
+            <p class="skill-level">Advanced</p>
+          </li>
+          <li class="skill-card">
+            <h3 class="skill-name">CSS</h3>
+            <div class="skill-bar-wrap" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="CSS proficiency 78%">
+              <div class="skill-bar" style="width:78%"></div>
+            </div>
+            <p class="skill-level">Proficient</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Education</p>
+        <h2 id="education-heading" class="sr-only">Education</h2>
+        <ol class="timeline" aria-label="Academic timeline">
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-body">
+              <time class="timeline-date" datetime="2025-09">Sep 2025 – Jun 2029</time>
+              <h3 class="timeline-degree">B.Tech — Computer Science &amp; Business Systems</h3>
+              <p class="timeline-school">RMD Engineering College · Kavaraipettai</p>
+              <span class="timeline-score">CGPA 8.46</span>
+            </article>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-body">
+              <time class="timeline-date" datetime="2024-09">Sep 2024 – Mar 2025</time>
+              <h3 class="timeline-degree">HSC (Higher Secondary Certificate)</h3>
+              <p class="timeline-school">Sri Kalaimagal Vidya Mandir Matric Hr Sec School · Gummidipoondi</p>
+              <span class="timeline-score">84.66%</span>
+            </article>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <article class="timeline-body">
+              <time class="timeline-date" datetime="2022-06">Jun 2022 – Apr 2025</time>
+              <h3 class="timeline-degree">SSLC (Secondary School Leaving Certificate)</h3>
+              <p class="timeline-school">Sri Kalaimagal Vidya Mandir Matric Hr Sec School · Gummidipoondi</p>
+              <span class="timeline-score">81%</span>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container" style="padding-block: var(--space-2xl)">
+        <p class="section-label" aria-hidden="true">Projects</p>
+        <h2 id="projects-heading" class="sr-only">Projects</h2>
+        <ul class="projects-grid" role="list">
+          <li>
+            <article class="project-card">
+              <header>
+                <span class="project-tag" aria-label="Category: AI / Machine Learning">AI &amp; Machine Learning</span>
+                <h3 class="project-title">Automated Fake News Detection System</h3>
+              </header>
+              <p class="project-desc">
+                An AI-based system that classifies news articles and audio as True, Fake, or Misleading
+                using Machine Learning and Natural Language Processing. Integrates real-time speech-to-text
+                conversion with News API verification, delivering confidence scores and plain-language
+                explanations for every prediction.
+              </p>
+              <footer>
+                <ul class="project-tech" role="list" aria-label="Technologies used">
+                  <li><span class="tech-chip">Python</span></li>
+                  <li><span class="tech-chip">NLP</span></li>
+                  <li><span class="tech-chip">Machine Learning</span></li>
+                  <li><span class="tech-chip">Speech-to-Text</span></li>
+                  <li><span class="tech-chip">News API</span></li>
+                </ul>
+              </footer>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+    <section id="achievements" aria-labelledby="achievements-heading">
+      <div class="container">
+        <p class="section-label" aria-hidden="true">Achievements &amp; Certifications</p>
+        <h2 id="achievements-heading" class="sr-only">Achievements and Certifications</h2>
+        <ul class="ach-grid" role="list">
+          <li>
+            <article class="ach-card">
+              <div class="ach-icon" aria-hidden="true">🏆</div>
+              <h3 class="ach-title">National Science Day Expo 2026</h3>
+              <p class="ach-body">
+                Presented an innovative sustainable-technology project at R.M.D. Engineering College
+                during the National Science Day 2026 Project Expo.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="ach-card">
+              <div class="ach-icon" aria-hidden="true">🎖️</div>
+              <h3 class="ach-title">National Science Day Competition 2026</h3>
+              <p class="ach-body">
+                Competed in the National Science Day Project Competition organised by
+                R.M.K. College of Engineering and Technology.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="ach-card">
+              <div class="ach-icon" aria-hidden="true">📜</div>
+              <h3 class="ach-title">Java Programming Fundamentals</h3>
+              <p class="ach-body">
+                Certified in Java Programming Fundamentals through
+                <strong>Infosys Springboard</strong>, demonstrating core OOP and programming competency.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container" style="padding-block: var(--space-2xl)">
+        <p class="section-label" aria-hidden="true">Contact</p>
+        <h2 id="contact-heading" class="sr-only">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <p class="contact-intro">Got a project, internship offer, or just want to say hi?</p>
+            <p class="contact-sub">I'm open to collaborations, internship opportunities, and interesting conversations about AI.</p>
+            <address>
+              <ul class="contact-links" role="list">
+                <li>
+                  <a href="mailto:rtharun081207@gmail.com" class="contact-link" aria-label="Send email to rtharun081207@gmail.com">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    rtharun081207@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+917010124724" class="contact-link" aria-label="Call Tharun R at +91 7010124724">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                    +91 7010124724
+                  </a>
+                </li>
+                <li>
+                  <a href="https://linkedin.com/in/tharun-r" class="contact-link" aria-label="View Tharun R on LinkedIn (opens in new tab)" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="contact-link" aria-label="View Tharun R's location in Chennai, India">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Chennai, India
+                  </a>
+                </li>
+              </ul>
+            </address>
+          </div>
+
+          <!-- ACCESSIBLE CONTACT FORM -->
+          <form
+            class="contact-form"
+            id="contact-form"
+            novalidate
+            aria-label="Send Tharun a message"
+          >
+            <div
+              class="form-status"
+              id="form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
+
+            <div class="form-group">
+              <label class="form-label" for="name">
+                Name<span class="req" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form-control"
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Your full name"
+                required
+                aria-required="true"
+                aria-describedby="name-error"
+              />
+              <span class="form-error" id="name-error" role="alert">Please enter your name.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                Email<span class="req" aria-hidden="true">*</span>
+              </label>
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+                aria-required="true"
+                aria-describedby="email-error"
+              />
+              <span class="form-error" id="email-error" role="alert">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject</label>
+              <input
+                class="form-control"
+                type="text"
+                id="subject"
+                name="subject"
+                autocomplete="off"
+                placeholder="Internship / Collaboration / Hello"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">
+                Message<span class="req" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                placeholder="What's on your mind?"
+                required
+                aria-required="true"
+                aria-describedby="message-error"
+                rows="5"
+              ></textarea>
+              <span class="form-error" id="message-error" role="alert">Please write a message.</span>
+            </div>
+
+            <button type="submit" class="btn-primary" style="justify-self:start">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-copy">
+        <span aria-hidden="true">&copy;</span> <span id="yr"></span> Tharun R. Built with semantic HTML5 &amp; CSS.
+      </p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <a href="#hero" class="back-top" id="back-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <!-- ── VISUALLY HIDDEN UTILITY ──────────────────────────── -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    // ── Year ──
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ── Mobile nav toggle ──
+    const toggle = document.querySelector('.nav-toggle');
+    const menu   = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open', !open);
+    });
+    // Close on link click
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('open');
+    }));
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('open');
+        toggle.focus();
+      }
+    });
+
+    // ── Back to top ──
+    const backTop = document.getElementById('back-top');
+    const obs = new IntersectionObserver(([e]) => {
+      backTop.classList.toggle('visible', !e.isIntersecting);
+    }, { threshold: .1 });
+    obs.observe(document.getElementById('hero'));
+
+    // ── Form validation & submission ──
+    const form   = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+
+      const fields = [
+        { id: 'name',    errorId: 'name-error' },
+        { id: 'email',   errorId: 'email-error' },
+        { id: 'message', errorId: 'message-error' },
+      ];
+
+      fields.forEach(({ id, errorId }) => {
+        const el  = document.getElementById(id);
+        const err = document.getElementById(errorId);
+        const ok  = el.checkValidity();
+        el.setAttribute('aria-invalid', String(!ok));
+        if (!ok) valid = false;
+      });
+
+      if (!valid) {
+        status.className = 'form-status error';
+        status.textContent = 'Please fill in all required fields correctly.';
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // Simulate success (wire up real endpoint here)
+      status.className = 'form-status success';
+      status.textContent = '✓ Message sent! I'll get back to you soon.';
+      form.reset();
+      fields.forEach(({ id }) => document.getElementById(id).removeAttribute('aria-invalid'));
+    });
+
+    // Live validation on blur
+    form.querySelectorAll('.form-control[required]').forEach(el => {
+      el.addEventListener('blur', () => {
+        const ok = el.checkValidity();
+        el.setAttribute('aria-invalid', String(!ok));
+      });
+    });
+  </script>
+</body>
+</html>
